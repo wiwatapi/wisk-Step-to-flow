@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Auto V3",
+  "version": "3.0.0",
+  "description": "Auto-generate and auto-download images from Google Labs Flow with Caption support",
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": [
+    "downloads",
+    "storage",
+    "activeTab",
+    "scripting",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://labs.google/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://labs.google/*"
+      ],
+      "js": [
+        "content.js",
+        "sidepanel.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "default_title": "Flow Auto V3 - คลิกเพื่อเปิด/ปิด"
+  }
+}
